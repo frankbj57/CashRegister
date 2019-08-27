@@ -25,7 +25,7 @@ namespace CashRegister
 
             if (reg.GetTotal() == 23.52)
             {
-                System.Console.WriteLine("Der er registreret det varer for 23.52 - OK");
+                System.Console.WriteLine("Der er registreret varer for 23.52 - OK");
             }
             else
             {
