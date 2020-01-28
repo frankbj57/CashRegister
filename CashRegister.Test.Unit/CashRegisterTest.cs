@@ -40,9 +40,9 @@ namespace CashRegister.Test.Unit
         [Test]
         public void AddItem_OneItem_TotalIsCorrect()
         {
-            uut.AddItem(11.44);
+            uut.AddItem(1.0/3);
 
-            Assert.That(uut.GetTotal(), Is.EqualTo(11.44));
+            Assert.That(uut.GetTotal(), Is.EqualTo(.33).Within(0.005));
         }
 
         [Test]
@@ -52,6 +52,21 @@ namespace CashRegister.Test.Unit
             uut.AddItem(15.75);
 
             Assert.That(uut.NoOfItems, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void AddItem_TwoItems_TotalIsCorrect()
+        {
+            uut.AddItem(1.25);
+            uut.AddItem(15.75);
+
+            Assert.That(uut.GetTotal(), Is.EqualTo(17.00));
+        }
+
+        [Test]
+        public void AddItem_NegativeItem_Throws()
+        {
+            Assert.That(() => uut.AddItem(-11.55), Throws.TypeOf<ArgumentException>());
         }
 
     }
