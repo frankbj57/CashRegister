@@ -66,7 +66,7 @@ namespace CashRegister.Test.Unit
         [Test]
         public void AddItem_NegativeItem_Throws()
         {
-            Assert.That(() => uut.AddItem(-11.55), Throws.TypeOf<ArgumentException>());
+            Assert.That(() => uut.AddItem(-11.60), Throws.TypeOf<ArgumentException>());
         }
 
     }
